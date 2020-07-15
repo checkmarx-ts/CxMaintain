@@ -1,0 +1,7 @@
+cxmaintain.egg-info/
+*.pyc
+*.test.yml
+build/
+dist/
+pylint.txt
+.vscode/
