@@ -9,15 +9,35 @@ Checkmarx Data Retention Helper:
 # Getting Started
 
 ## Wiki
-- To get started, Please visit the [wiki](https://github.com/checkmarx-ts/CxMaintain/wiki/home). 
+- To get started, Please visit the [wiki](https://github.com/checkmarx-ts/CxMaintain/wiki). 
 
-- For `Installation instructions` Please Visit [this section](https://github.com/checkmarx-ts/CxMaintain/wiki/Installation) in the Wiki.
+## Installation
+To Install CxMaintain, Please follow the instructions here on [this page.](https://github.com/checkmarx-ts/CxMaintain/wiki/Installation)
 
+## Usage Commands
+```
+Commands:
+init            Create OR Reinitialize a configuration file to connect to Checkmarx cxsast v9.0
+login           Authenticate user on Checkmarx
+checktoken      Check token as unexpired. (Requires login --save to be used prior.)
+retention       Check for CxSAST directories that can be deleted.
+```
+
+## Command Options
+```
+-s, --save               Save OAuth Token into configuration directory.
+-h, --help               Help.
+--delete                 Delete directories.
+-v, --verbose            Display version of CxDir.
+--days=days              Number of days to retain.
+```
+
+## The detection process.
+Deletion process does not rely on `Microsoft Windows` `Directory date-modified` information as such detection is weak and cannot be helpful to determine locked-scan.
+
+To know more, [Read information here.](https://github.com/checkmarx-ts/CxMaintain/wiki/Delete-detection)
 
 ## Docker
 - At this stage, Dockerfile is for testing changes in code quickly.
-- This Dockerfile can be extended to run `CxMaintain` toolkit, However, care must be taken to provide the yaml files.
-- Please consider `fakeroot` if you use this dockerfile beyond testing code changes.
-- Build command `docker build -t CxMaintain:0.0.1 path/to/dockerfile`.
-- Run command `docker run -it CxMaintain`.
+- Please do not use it on a production machine.
 ---
