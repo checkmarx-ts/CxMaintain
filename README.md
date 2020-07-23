@@ -1,5 +1,5 @@
 # CxMaintain
-Checkmarx Data Retention Helper:
+Checkmarx Data Retention Helper for CxSAST 9.x
 
 
 ## Purpose
