@@ -19,19 +19,19 @@ Options:
 -s, --save               Save OAuth Token into configuration directory.
 -h, --help               Help.
 --delete                 Delete directories.
--v, --verbose            Display version of CxDir.
+-v, --verbose            Display version of cxmaintain.
 --days=days              Number of days to retain.
 
 Report bugs to Checkmarx (Cx TS-APAC) <TS-APAC-PS@checkmarx.com>
 '''
 import docopt
 import sys
-from cxdir.auth.auth import Auth
-from cxdir.config import Config
-from cxdir.retention.retention import Retention
+from cxmaintain.auth.auth import Auth
+from cxmaintain.config import Config
+from cxmaintain.retention.retention import Retention
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 def main(sysargv=None):
     argv = docopt.docopt(
