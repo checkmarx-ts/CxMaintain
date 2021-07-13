@@ -28,7 +28,7 @@ retention       Check for CxSAST directories that can be deleted.
 -s, --save               Save OAuth Token into configuration directory.
 -h, --help               Help.
 --delete                 Delete directories.
--v, --verbose            Display version of CxDir.
+-v, --verbose            Display version of CxMaintain.
 --days=days              Number of days to retain.
 ```
 
