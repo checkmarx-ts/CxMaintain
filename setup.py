@@ -20,7 +20,7 @@ setup(
     name='cxmaintain',
     version=_version,
     description='Checkmarx CxSAST 9.0 Retention Helper',
-    url='https://github.com/checkmarx-ts/CxDir',
+    url='https://github.com/checkmarx-ts/CxMaintain',
     author='Checkmarx TS-APAC',
     author_email='TS-APAC-PS@checkmarx.com',
     classifiers=[
@@ -37,6 +37,6 @@ setup(
     extras_require={
         'tests': install_requires + tests_require,
     },
-    package_data={'cxdir': ['templates/*']},
+    package_data={'cxmaintain': ['templates/*']},
     entry_points={'console_scripts': ['cxmaintain=cxmaintain.cxmaintain:main']}
 )

@@ -26,7 +26,7 @@ class Config(Connection):
         self.logfile_path = self.log_path / "cxmaintain.log"
 
         # Setup paths
-        self.token_config = self.config_path / "cxdirToken.yaml"
+        self.token_config = self.config_path / "cxmaintainToken.yaml"
         self.cx_config = self.config_path / "cxmaintain.yaml"
         # Setting this as default for LDAP Provider ID
         # This may require clean-up if multiple LDAP connections are to be used.
@@ -35,7 +35,7 @@ class Config(Connection):
         # Enable this first - So that log file is available or created
         self.check_path()
         # Logger
-        self.logger = logging.getLogger('CxDir')
+        self.logger = logging.getLogger('CxMaintain')
         logging.basicConfig(handlers=[RotatingFileHandler(self.logfile_path, maxBytes=100000, backupCount=10)],
                             level=logging.DEBUG if self.verbose else logging.INFO,
                             format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
