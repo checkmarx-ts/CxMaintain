@@ -40,7 +40,7 @@ def main(sysargv=None):
         version=__version__
     )
     if argv['version']:
-        print("CxAccess version: {0}".format(__version__))
+        print("CxMaintain version: {0}".format(__version__))
         sys.exit(0)
     
     # Default to 
