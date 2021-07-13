@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from json import loads
 from PyInquirer import prompt, Separator
 import jwt
-from cxdir.config import Config
+from cxmaintain.config import Config
 from sys import exit
 # To-DO: Assumption is SSL/TLS is enabled. Port 80 is currently unsupported.
 

@@ -7,7 +7,7 @@ from os.path import isdir
 from os.path import isfile
 from os import mkdir as create_directory
 import yaml
-from cxdir.utils.connections import Connection
+from cxmaintain.utils.connections import Connection
 # To-Do: De-duplicate read-write methods to a factory
 # Reserving this for now as a future todo.
 
@@ -23,11 +23,11 @@ class Config(Connection):
         self.config_path = Path.joinpath(Path().home(), ".cx")
         # Logger
         self.log_path = Path.joinpath(self.config_path, "logs")
-        self.logfile_path = self.log_path / "cxdir.log"
+        self.logfile_path = self.log_path / "cxmaintain.log"
 
         # Setup paths
         self.token_config = self.config_path / "cxdirToken.yaml"
-        self.cx_config = self.config_path / "cxdir.yaml"
+        self.cx_config = self.config_path / "cxmaintain.yaml"
         # Setting this as default for LDAP Provider ID
         # This may require clean-up if multiple LDAP connections are to be used.
         self.ldap_provider_id = None

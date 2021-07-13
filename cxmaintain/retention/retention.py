@@ -4,7 +4,7 @@ from pathlib import Path
 from shutil import rmtree
 from PyInquirer import prompt
 import yaml
-from cxdir.config import Config
+from cxmaintain.config import Config
 from dateutil.parser import parse
 
 class Retention(Config):
