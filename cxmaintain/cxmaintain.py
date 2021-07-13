@@ -10,7 +10,7 @@
 {0} version
 
 Commands:
-init            Create OR Reinitialize a configuration file to connect to Checkmarx cxsast v9.0
+init            Create OR reinitialize a configuration file to connect to Checkmarx CxSAST v9.0
 login           Authenticate user on Checkmarx
 checktoken      Check token as unexpired. (Requires login --save to be used prior.)
 retention       Check for CxSAST directories that can be deleted.
@@ -19,7 +19,7 @@ Options:
 -s, --save               Save OAuth Token into configuration directory.
 -h, --help               Help.
 --delete                 Delete directories.
--v, --verbose            Display version of cxmaintain.
+-v, --verbose            Display version of CxMaintain.
 --days=days              Number of days to retain.
 
 Report bugs to Checkmarx (Cx TS-APAC) <TS-APAC-PS@checkmarx.com>
