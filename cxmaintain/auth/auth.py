@@ -239,7 +239,7 @@ class Auth(Config):
                 self.token = "{0} {1}".format(token_type, token_raw)
                 # Decode token and print expiry
                 # Do not save token to disk
-                token_decoded = jwt.decode(token_raw, verify=False)
+                token_decoded = jwt.decode(token_raw, options={'verify_signature': False})
                 print("Token expires by: {0} ({1} Hours).".format(
                     datetime.fromtimestamp(token_decoded['exp']),
                     int((int(token_decoded['exp']) - int(time.time()))/(3600))
