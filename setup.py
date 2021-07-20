@@ -1,6 +1,6 @@
 from setuptools import setup
 
-_version = '0.0.1'
+_version = '0.1.0rc1'
 
 install_requires=[
     'PyInquirer',
