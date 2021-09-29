@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-'''Usage: 
+'''Usage:
 {0} init [--verbose]
 {0} login [--save] [--verbose]
 {0} checktoken [--verbose]
@@ -42,8 +42,8 @@ def main(sysargv=None):
     if argv['version']:
         print("CxMaintain version: {0}".format(__version__))
         sys.exit(0)
-    
-    # Default to 
+
+    # Default to
     verbose = False
     if argv['--verbose']:
         verbose = True
@@ -63,19 +63,19 @@ def main(sysargv=None):
     if argv['init']:
         if not config_checked:
             config_checked = config.check_path()
-    
+
     # Perform Authentication and Save token
     if argv['login'] and argv['--save']:
         authy = Auth(verbose)
         authy.perform_auth(save_config=True)
-    
+
     if argv['login'] and not argv['--save']:
         authy = Auth(verbose)
         authy.perform_auth()
-    
+
     if argv['checktoken']:
         config.read_token()
-    
+
     if argv['dryrun']:
         delete_dir = False
         chkdir = Retention(verbose, daylimit, delete_dir)

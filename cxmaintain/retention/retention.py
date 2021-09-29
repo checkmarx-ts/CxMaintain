@@ -46,11 +46,11 @@ class Retention(Config):
         """
         if not scan_data or scan_data == {}:
             return False
-        
+
         diff = (self.current_time - parse(scan_data['dateAndTime']['finishedOn'])).days
-        # Scan is not locked        
+        # Scan is not locked
         if not scan_data['isLocked'] and diff > self.daylimit:
-            return True        
+            return True
 
     def get_directories_for_delete(self):
         for scan in self.scans_data:

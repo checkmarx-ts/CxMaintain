@@ -51,7 +51,7 @@ class Auth(Config):
             print("Host: {0}".format(host_answers['host']))
             self.logger.info("Host: {0}".format(host_answers['host']))
         self.host = host_answers['host']
-    
+
     def set_scope(self):
         scope_questions = [
             {
@@ -59,7 +59,7 @@ class Auth(Config):
                 'qmark': 'Login Scope',
                 'message': 'Select login scope. Access Control is selected by default',
                 'name': 'Privileges Choice',
-                'choices': [ 
+                'choices': [
                     Separator('*-* Select Login scope *-*'),
                     {
                         'name' : 'Checkmarx Access Control Module',
@@ -127,7 +127,7 @@ class Auth(Config):
             if self.verbose:
                 print(ssl_answer)
             self.verify = not ssl_answer['sslVerify']
-    
+
     def set_client_id(self):
         # To-DO: Client Secret
         client_id_questions = [
@@ -152,7 +152,7 @@ class Auth(Config):
             print("client ID: ", self.client_id)
             self.logger.info("Client ID: {0}".format(self.client_id))
         self.client_id = client_id_map['Use Default Client']
-    
+
     def ask_domain(self):
         """
         Check available domains configured on Checkmarx Access Control Module
@@ -163,14 +163,14 @@ class Auth(Config):
             raise Exception
         # Write providers
         auth_providers = response.json()
-       
+
         auth_provider_questions = [
             {
                 'type': 'checkbox',
                 'qmark': 'Authentication Providers',
                 'message': 'Select login scope. Access Control is selected by default',
                 'name': 'provider',
-                'choices': [ 
+                'choices': [
                     Separator('*-* Select Authentication proviers *-*'),
                 ],
                 'validate': lambda answer: 'You must choose one.' if not len(answer) == 1 else True
@@ -179,13 +179,13 @@ class Auth(Config):
         # Setting a static index here.
         for auth_provider in auth_providers:
             auth_provider_questions[0]['choices'].append({'name': auth_provider['name']})
-        
+
         # Default to Application user if no option is chosen.
         # When choosing options, User has to hit space-bar.
         auth_provider_answers = prompt(auth_provider_questions)
         if len(auth_provider_answers['provider']) == 0:
             auth_provider_answers['provider'].append('Application')
-        
+
         self.auth_provider = auth_provider_answers['provider'][0]
 
         if self.verbose:
@@ -213,7 +213,7 @@ class Auth(Config):
                         ]
         self.logger.info("Authentication")
         return prompt(auth_questions)
-        
+
     def perform_auth(self, save_config=False):
         """
         Setting default scope to use just the AC Module
@@ -262,7 +262,7 @@ class Auth(Config):
                 if self.verbose:
                     print(response.text)
                     self.logger.error(response.text)
-            
+
         except requests.exceptions.RequestException as http_err:
             # To-Do: Log error
             print(" General Error occured. Status: {0}".format(response.status_code))
