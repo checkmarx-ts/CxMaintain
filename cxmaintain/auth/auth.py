@@ -118,7 +118,7 @@ class Auth(Config):
                     'type': 'confirm',
                     'qmark': 'SSL Verification',
                     'message': 'Self-Signed Cert detected. Turn off SSL Certificate verification?',
-                    'name': 'sslVerify'
+                    'name': 'disableSslVerify'
                 }
             ]
             ssl_answer = prompt(ssl_questions)
@@ -126,7 +126,7 @@ class Auth(Config):
             self.logger.info(ssl_answer)
             if self.verbose:
                 print(ssl_answer)
-            self.verify = not ssl_answer['sslVerify']
+            self.verify = not ssl_answer['disableSslVerify']
 
     def set_client_id(self):
         # To-DO: Client Secret
