@@ -112,7 +112,7 @@ class Auth(Config):
         url = self.base_url.format(self.host, "/AuthenticationProviders")
         #To-DO: Log here
         if not self.check_connection(url):
-            print("SSL Validation Error occured")
+            print("SSL Validation Error occurred")
             ssl_questions = [
                 {
                     'type': 'confirm',
@@ -171,7 +171,7 @@ class Auth(Config):
                 'message': 'Select login scope. Access Control is selected by default',
                 'name': 'provider',
                 'choices': [
-                    Separator('*-* Select Authentication proviers *-*'),
+                    Separator('*-* Select Authentication providers *-*'),
                 ],
                 'validate': lambda answer: 'You must choose one.' if not len(answer) == 1 else True
             }
@@ -265,7 +265,7 @@ class Auth(Config):
 
         except requests.exceptions.RequestException as http_err:
             # To-Do: Log error
-            print(" General Error occured. Status: {0}".format(response.status_code))
-            self.logger.error(" General Error occured. Status: {0}".format(response.status_code))
+            print(" General Error occurred. Status: {0}".format(response.status_code))
+            self.logger.error(" General Error occurred. Status: {0}".format(response.status_code))
             self.logger.error("Details: {0}".format(response.text))
         creds = {}
