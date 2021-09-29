@@ -31,7 +31,7 @@ from cxmaintain.config import Config
 from cxmaintain.retention.retention import Retention
 
 
-__version__ = '0.1.0rc1'
+__version__ = '0.1.0rc2'
 
 def main(sysargv=None):
     argv = docopt.docopt(
