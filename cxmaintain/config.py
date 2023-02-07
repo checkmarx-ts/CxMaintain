@@ -150,5 +150,8 @@ class Config(Connection):
             print("Reading config from here: {0}".format(self.cx_config))
             self.logger.info(
                 "Reading config from here: {0}".format(self.cx_config))
-            return yaml.full_load(cx_config_reader)
+            config = yaml.full_load(cx_config_reader)
+            if not config:
+                raise RuntimeError('No config found in {0}'.format(self.cx_config))
+            return config
 
