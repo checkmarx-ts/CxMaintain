@@ -90,4 +90,8 @@ def main(sysargv=None):
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         sys.argv.append('-h')
-    sys.exit(main(sys.argv[1:]))
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except Exception as e:
+        print('Error: {0}'.format(e), file=sys.stderr)
+        sys.exit(1)
