@@ -68,11 +68,11 @@ class Retention(Config):
                 self.logger.info("Mock Delete: {0}".format(d))
         if self.delete:
             for d in self.delete_dirs_list:
-                self.logger.info("Deleteing", d)
+                self.logger.info("Deleting {0}".format(d))
                 if self.verbose:
-                    print("Deleting directory: ", d)
+                    print("Deleting directory: {0}".format(d))
                 try:
                     rmtree(Path(d))
                 except Exception as err:
                     self.logger.error(err)
-                    self.logger.error('Cannot delete directory', d)
+                    self.logger.error('Cannot delete directory {0}'.format(d))
